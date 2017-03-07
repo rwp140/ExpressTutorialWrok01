@@ -4,9 +4,9 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://node:node@novus.modulusmongo.net:27017/Iganiq8o'); // connect to our database
-var Bear = require('./app/models/bear');
+var mongoose   = require('mongoose');
+mongoose.connect('mongodb://test:test@olympia.modulusmongo.net:27017/sy5Rabes'); // connect to our database
+var Bear     = require('./app/models/bear');
 //</>
 //bodyParser to app configuration
 app.use(bodyParser.urlencoded({extended:true}));
