@@ -49,6 +49,11 @@ router.route('/bears')
       }
     });
   })
+.get(function(req, res) {
+    Bear.find(function(err, bears) {
+        if (err){
+            res.send(err);
+        }
 
       res.json({message: 'Bear created!'});
     });
