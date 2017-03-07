@@ -57,6 +57,18 @@ router.route('/bears')
 
         res.json(bears);
     });
+});
+//</>
+//<bears/:bear_id>
+router.route('/bears/:bear_id')
+  .get(function(req,res){
+    Bear.findById(req.params.bear_id, function(err, bear){
+      if(err){
+        res.send(err);
+      }
+      res.json(bear)
+    });
+  })
 
   });
 //</>
