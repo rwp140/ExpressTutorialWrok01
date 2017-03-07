@@ -30,7 +30,24 @@ router.get('/', function(req, res){
 });
 
 //<more routes>
+//<bears>
+router.route('/bears')
+  .post(function(req,res){//creates bear (accessed at POST http://localhost:8080/api/bears)
+    
+    var bear = new Bear(); //creates bear instance
+    bear.name = req.body.name; //sets bear name
 
+    //save the bear and check for errors
+    bear.save(function(err){
+      if(err)
+        res.send(err);
+      
+
+      res.json({message: 'Bear created!'});
+    });
+
+  });
+//</>
 //</>
 //3) register routes
 app.use('/api',router);// all routes will use /api
