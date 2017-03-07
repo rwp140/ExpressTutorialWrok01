@@ -18,8 +18,13 @@ var port = process.env.PORT || 8080;
 //2) set API routes
 var router = express.Router();              // get an instance of the express Router
 
+router.use(function(req,res,next){
+  console.log('something is happening.');
+  next();// makes sure we go to the next routes and don't stop here
+});
 
-router.get('/', function(req, res){//test route
+//test route
+router.get('/', function(req, res){
   res.json({message:'horray! welcome to our api!'});
 });
 
