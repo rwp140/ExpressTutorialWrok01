@@ -44,7 +44,11 @@ router.route('/bears')
     bear.save(function(err) {
       if (err){
         res.send(err);
-      
+      }else{
+        res.json({ message: 'Bear created!' });
+      }
+    });
+  })
 
       res.json({message: 'Bear created!'});
     });
