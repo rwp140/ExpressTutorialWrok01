@@ -69,6 +69,23 @@ router.route('/bears/:bear_id')
       res.json(bear)
     });
   })
+  .put(function(req,res){
+    Bear.findById(req.params.bear_id, function(err, bear){
+      if(err){
+        res.send(err);
+      }
+
+      bear.name = req.body.name; //updates bear info
+
+      bear.save(function(err){
+        if(err){
+            res.send(err);
+        }
+
+        res.json({message: 'Bear updated'});
+      });
+    });
+  })
 
   });
 //</>
