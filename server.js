@@ -4,12 +4,12 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var mongoose   = require('mongoose');
+var mongoose = require('mongoose');
 mongoose.connect('mongodb://test:test@olympia.modulusmongo.net:27017/sy5Rabes'); // connect to our database
-var Bear     = require('./app/models/bear');
+var Bear = require('./app/models/bear');
 //</>
 //bodyParser to app configuration
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 var port = process.env.PORT || 8080;
@@ -18,15 +18,16 @@ var port = process.env.PORT || 8080;
 //2) set API routes
 var router = express.Router();              // get an instance of the express Router
 
+// middleware to use for all requests
 router.use(function(req, res, next) {
     // do logging
     console.log('Something is happening.');
     next(); // make sure we go to the next routes and don't stop here
 });
 
-//test route
-router.get('/', function(req, res){
-  res.json({message:'horray! welcome to our API!'});
+// test route to make sure everything is working (accessed at GET http://localhost:8080/api)
+router.get('/', function(req, res) {
+    res.json({ message: 'hooray! welcome to our api!' });   
 });
 
 //<more routes>
