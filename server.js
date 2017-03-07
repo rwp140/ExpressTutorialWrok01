@@ -55,7 +55,7 @@ router.route('/bears')
             res.send(err);
         }
 
-      res.json({message: 'Bear created!'});
+        res.json(bears);
     });
 
   });
