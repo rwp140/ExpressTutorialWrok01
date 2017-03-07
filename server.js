@@ -101,8 +101,8 @@ router.route('/bears/:bear_id')
 //</>
 //</>
 //3) register routes
-app.use('/api',router);// all routes will use /api
+app.use('/api', router);// all routes will use /api
 
 //4) start server
 app.listen(port);//list to port stored in var port
-console.log('The magic happens on port; '+ port);
+console.log('The magic happens on port '+ port);
