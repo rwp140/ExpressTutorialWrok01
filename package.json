@@ -1,10 +1,19 @@
 {
-    "name": "node-api",
-    "main": "server.js",
-    "dependencies": {
-        "express": "~4.0.0",
-        "express-generator":"*",
-        "mongoose": "~4.4.3",
-        "body-parser": "~1.0.1"
-    }
+  "name": "node-api",
+  "main": "server.js",
+  "dependencies": {
+    "express": "~4.0.0",
+    "express-generator": "*",
+    "mongoose": "~4.4.3",
+    "body-parser": "~1.0.1",
+    "supertest": "*",
+    "should": "*",
+    "assert": "*"
+  },
+  "devDependencies": {
+    "mocha": "^3.2.0"
+  },
+  "scripts": {
+    "test": "make test"
+  }
 }
