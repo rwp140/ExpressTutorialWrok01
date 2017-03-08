@@ -7,23 +7,27 @@ describe('loading express', function () {
   var localUrl = 'localhost:'+port;
   before(function (done) {
     delete require.cache[require.resolve('./server')];
-    //server = require('./server');
-    router = require('./server');
+    server = require('./server');
+    //router = require('./server');
     //mongoose.connect('mongodb://test:test@olympia.modulusmongo.net:27017/sy5Rabes'); // connect to database
+    done();
   });
-  // afterEach(function (done) {
-  //   router.close(done);
-  // });
-  it('responds to /', function testSlash(done) {
-    request(router)
-      .get('/')
-      .expect(200, done);
+  after(function (done) {
+    server.close(done);
   });
-  it('bears 202', function testPath(done) {
-    request(router)
-      .get('/api/bears')
-      .expect(200, done);
-  });
+  describe('basic tests',function(){
+     it('responds to /', function testSlash(done) {
+      request(server)
+        .get('/api')
+        .expect(200, done);
+    });
+    it('bears 202', function testPath(done) {
+      request(server)
+        .get('/api/bears')
+        .expect(200, done);
+    });
+  })
+ 
 });
 
 //https://glebbahmutov.com/blog/how-to-correctly-unit-test-express-server/
