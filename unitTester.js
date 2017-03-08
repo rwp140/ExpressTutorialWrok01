@@ -1,3 +1,4 @@
+//https://thewayofcode.wordpress.com/2013/04/21/how-to-build-and-test-rest-api-with-nodejs-express-mocha/
 var request = require('supertest');
 //var mongoose = require('mongoose');
 describe('loading express', function () {
@@ -25,6 +26,7 @@ describe('loading express', function () {
   });
 });
 
+//https://glebbahmutov.com/blog/how-to-correctly-unit-test-express-server/
 // var should = require('should'); 
 // var assert = require('assert');
 // var request = require('supertest');  
