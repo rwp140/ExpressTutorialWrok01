@@ -106,3 +106,4 @@ app.use('/api', router);// all routes will use /api
 //4) start server
 app.listen(port);//list to port stored in var port
 console.log('The magic happens on port '+ port);
+module.exports = router;
