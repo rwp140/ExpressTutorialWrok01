@@ -16,14 +16,47 @@ describe('loading express', function () {
     server.close(done);
   });
   describe('basic tests',function(){
-     it('responds to /', function testSlash(done) {
+    var id;
+    it('responds to /', function testSlash(done) {
       request(server)
         .get('/api')
         .expect(200, done);
     });
-    it('bears 202', function testPath(done) {
+    it('post bears 200', function testPath(done) {
+      request(server)
+        .post('/api/bears')
+        .send({"name":"klaus"})
+        .expect(200, done);
+    });
+    it('get bears 200', function testPath(done) {
       request(server)
         .get('/api/bears')
+        .expect(200)//, done)
+        .end(function (err, res){
+          //console.log(res.body[0]._id);
+          id = res.body[0]._id;
+          console.log(id);
+          done();
+        });
+    });
+    it('get bear 200', function testPath(done) {
+      request(server)
+        .get('/api/bears/'+id)
+        .expect(200)//, done)
+        .end(function (err, res){
+          console.log(res.body);
+          done();
+        });
+    });
+    it('put bear 200', function testPath(done) {
+      request(server)
+        .put('/api/bears/'+id)
+        .send({"name":"Sir klaus"})
+        .expect(200, done);
+    });
+    it('Delete bear 200', function testPath(done) {
+      request(server)
+        .delete('/api/bears/'+id)
         .expect(200, done);
     });
   })
